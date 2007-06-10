@@ -2,7 +2,7 @@
 %define oname ROX-Filer
 
 Name:		rox
-Version: 	2.6
+Version: 	2.6.1
 Release: %mkrel 1
 Summary:	A fast and powerful graphical file manager
 Group:		Graphical desktop/Other
