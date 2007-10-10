@@ -75,7 +75,7 @@ cat > $RPM_BUILD_ROOT%{_datadir}/gnome/apps/Applications/%{name}.desktop <<EOF
 Name=ROX Filer
 Comment=ROX Filer
 Exec=rox
-Icon=rox.png
+Icon=rox
 Terminal=false
 MultipleArgs=false
 Type=Application
