@@ -2,7 +2,7 @@
 %define oname ROX-Filer
 
 Name:		rox
-Version: 	2.6.1
+Version: 	2.7
 Release: %mkrel 1
 Summary:	A fast and powerful graphical file manager
 Group:		Graphical desktop/Other
@@ -14,12 +14,14 @@ Source2:	rox-48.png
 Source3:	rox-32.png
 Source4:	rox-16.png
 Patch0:		rox-20040801-xvt.patch
-Patch1:		rox-2.1.2-shell.patch
+Patch1:		rox-filer-2.7-shell.patch
 Patch2:		rox-2.1.0-gnuclient.patch
 Provides:	rox-base
 Obsoletes:	rox-base
 BuildRoot:	%{_tmppath}/%{name}-%version-buildroot
 BuildRequires:	libgtk+2.0-devel >= 2.2.0
+BuildRequires:	libglade2.0-devel
+BuildRequires:	gettext-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libgnome-vfs2-devel >= 2.8.0
 BuildRequires:  libxt-devel
@@ -46,7 +48,7 @@ export CFLAGS="$RPM_OPT_FLAGS -I%_prefix/X11R6/lib"
 ./%oname/AppRun --compile
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT %name.lang
 mkdir -p $RPM_BUILD_ROOT%_libdir/apps
 mkdir -p $RPM_BUILD_ROOT%{_bindir}
 mkdir -p $RPM_BUILD_ROOT%{_mandir}/man1
@@ -102,8 +104,8 @@ install -D %{SOURCE4} $RPM_BUILD_ROOT%{_miconsdir}/%name.png
 # remove temp file
 rm -f $RPM_BUILD_ROOT%_libdir/apps/Netscape/.AppRun.swp $RPM_BUILD_ROOT%{_datadir}/Choices/MIME-types/* $RPM_BUILD_ROOT%_libdir/apps/ROX-Filer/AppRun.*
 
-for gmo in %buildroot%_libdir/apps/%oname/Messages/*.gmo;do
-echo "%lang($(basename $gmo|sed s/.gmo//)) $(echo $gmo|sed s!%buildroot!!)" >> %name.lang
+for langdir in %buildroot%_libdir/apps/%oname/Messages/*/;do
+echo "%lang($(basename $langdir)) $(echo $langdir |sed s!%buildroot!!)" >> %name.lang
 done
 
 %clean
@@ -122,6 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %_libdir/apps/%oname/Messages/README
 %dir %_libdir/apps/
 %dir %_libdir/apps/%oname
+%_libdir/apps/%oname/Templates.glade
 %_libdir/apps/%oname/.DirIcon
 %_libdir/apps/%oname/A*
 %_libdir/apps/%oname/Options.xml
