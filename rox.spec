@@ -18,6 +18,7 @@ Patch1:		rox-filer-2.7-shell.patch
 Patch2:		rox-2.1.0-gnuclient.patch
 Provides:	rox-base
 Obsoletes:	rox-base
+BuildRoot:	%{_tmppath}/%{name}-%version-buildroot
 BuildRequires:	libgtk+2.0-devel >= 2.2.0
 BuildRequires:	libglade2.0-devel
 BuildRequires:	gettext-devel
