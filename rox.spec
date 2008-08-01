@@ -3,7 +3,7 @@
 
 Name:		rox
 Version: 	2.7
-Release: %mkrel 3
+Release: %mkrel 4
 Summary:	A fast and powerful graphical file manager
 Group:		Graphical desktop/Other
 License:	GPL
