@@ -2,8 +2,8 @@
 %define oname ROX-Filer
 
 Name:		rox
-Version: 	2.7
-Release: %mkrel 4
+Version: 	2.9
+Release: %mkrel 1
 Summary:	A fast and powerful graphical file manager
 Group:		Graphical desktop/Other
 License:	GPL
@@ -13,7 +13,6 @@ Source1:	http://prdownloads.sourceforge.net/%{name}/Wrappers-%{wrappers_ver}.tar
 Source2:	rox-48.png
 Source3:	rox-32.png
 Source4:	rox-16.png
-Patch0:		rox-20040801-xvt.patch
 Patch1:		rox-filer-2.7-shell.patch
 Patch2:		rox-2.1.0-gnuclient.patch
 Provides:	rox-base
@@ -39,7 +38,6 @@ The Wrappers package found on the Rox home page is already included.
 
 %prep
 %setup -q -a 1 -n rox-filer-%version
-%patch0 -p1
 %patch1 -p1 -b .shell
 %patch2 -p1 -b .gnuclient
 
