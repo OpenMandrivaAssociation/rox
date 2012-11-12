@@ -1,0 +1,45 @@
+--- rox-2.1.0/Wrappers/Emacs/AppRun.fred	2000-10-23 00:16:51.000000000 +0200
++++ rox-2.1.0/Wrappers/Emacs/AppRun	2003-11-23 18:55:04.000000000 +0100
+@@ -1,18 +1,23 @@
+ #!/bin/sh
+ # This script launches emacs using the emacsclient program.
+ # If necessary, emacs is started
++
+ . `dirname $0`/Config
++
+ echo USE_CLIENT=$USE_CLIENT
+-function start_emacs {
+-    local start_server
+-    [ -z "$USE_CLIENT" ] || start_server="-eval '(server-start)'"
+-    eval emacs $start_server $@
+-}
+-    
++
+ if [ -z "$USE_CLIENT" ] ; then
+-    emacs $@
++    emacs "$@"
+ else
+-    if [ -z "$1" ] || ! emacsclient $@ 2>/dev/null ; then
+-        start_emacs $@
+-    fi
++    if [ -n "$USE_GNUCLIENT" ]; then
++	start_server="-eval '(gnuserv-start)'"
++	client="gnuclient -q"
++        else
++	    start_server="-eval '(server-start)'"
++	    client="emacsclient -n"
++        fi
++
++	if [ -z "$1" ] || ! $client "$@" 2>/dev/null ; then
++	    eval emacs $start_server "$@"
++	fi
+ fi
+--- rox-2.1.0/Wrappers/Emacs/Config.fred	2000-10-23 00:17:16.000000000 +0200
++++ rox-2.1.0/Wrappers/Emacs/Config	2003-11-23 16:51:31.000000000 +0100
+@@ -15,3 +15,6 @@
+ # USE_CLIENT setting
+ USE_CLIENT=YES
+ #unset USE_CLIENT
++if type -p gnuclient > /dev/null 2>&1; then
++    USE_GNUCLIENT=YES
++fi
