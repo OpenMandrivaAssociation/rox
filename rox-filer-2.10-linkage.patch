@@ -1,0 +1,12 @@
+diff -urN rox-filer-2.10/ROX-Filer/src/Makefile.in rox-filer-2.10-patched/ROX-Filer/src/Makefile.in
+--- rox-filer-2.10/ROX-Filer/src/Makefile.in	2009-07-19 01:23:18.000000000 +1100
++++ rox-filer-2.10-patched/ROX-Filer/src/Makefile.in	2012-11-14 01:17:49.085903234 +1100
+@@ -7,7 +7,7 @@
+ .SUFFIXES: .c .o
+ 
+ PKG_CONFIG = @PKG_CONFIG@
+-LIBS = @LIBS@ @LFS_LDFLAGS@ -lICE -lSM
++LIBS = @LIBS@ @LFS_LDFLAGS@ -lICE -lSM -lm -ldl
+ #PROF = -fprofile-arcs -pg
+ 
+ PKG_CONFIG_FLAGS=
