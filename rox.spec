@@ -3,7 +3,7 @@
 
 Name:		rox
 Version:	2.10
-Release:	2
+Release:	3
 Summary:	A fast and powerful graphical file manager
 Group:		Graphical desktop/Other
 License:	GPL
