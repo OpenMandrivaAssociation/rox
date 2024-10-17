@@ -7,7 +7,7 @@ Release:	3
 Summary:	A fast and powerful graphical file manager
 Group:		Graphical desktop/Other
 License:	GPL
-URL:		http://rox.sourceforge.net
+URL:		https://rox.sourceforge.net
 Source:		http://prdownloads.sourceforge.net/%{name}/%{name}-filer-%{version}.tar.bz2
 Source1:	http://prdownloads.sourceforge.net/%{name}/Wrappers-%{wrappers_ver}.tar.bz2
 Source2:	rox-48.png
