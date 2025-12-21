@@ -16,6 +16,7 @@ Source4:	rox-16.png
 Patch0:		rox-filer-2.10-linkage.patch
 Patch1:		rox-filer-2.7-shell.patch
 Patch2:		rox-2.1.0-gnuclient.patch
+BuildRequires:	make
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	gettext-devel
