@@ -36,9 +36,9 @@ The Wrappers package found on the Rox home page is already included.
 
 %prep
 %setup -q -a 1 -n rox-filer-%{version}
-%patch0 -p1 -b .linkage
-%patch1 -p1 -b .shell
-%patch2 -p1 -b .gnuclient
+%patch 0 -p1 -b .linkage
+%patch 1 -p1 -b .shell
+%patch 2 -p1 -b .gnuclient
 
 %build
 %setup_compile_flags
