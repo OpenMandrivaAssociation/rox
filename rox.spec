@@ -39,6 +39,9 @@ The Wrappers package found on the Rox home page is already included.
 %patch 0 -p1 -b .linkage
 %patch 1 -p1 -b .shell
 %patch 2 -p1 -b .gnuclient
+# A tentative definition in the header becomes a second symbol
+# under -fno-common.
+sed -i 's/^gboolean session_auto_respawn;$/extern gboolean session_auto_respawn;/' ROX-Filer/src/session.h
 
 %build
 %setup_compile_flags
